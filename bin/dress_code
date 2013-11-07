@@ -79,10 +79,17 @@ if !config['glob']
   exit
 end
 
-extractor = DressCode::Extractor.new({
-  :files => Dir.glob(config['glob']),
-  :base_dir => config['base_dir']
-})
+if config['glob'].match('sass')
+  extractor = DressCode::SassExtractor.new({
+    :files => Dir.glob(config['glob']),
+    :base_dir => config['base_dir']
+  })
+else
+  extractor = DressCode::Extractor.new({
+    :files => Dir.glob(config['glob']),
+    :base_dir => config['base_dir']
+  })
+end
 generator = DressCode::Generator.new({
   :out_file => config['out_file'],
   :docs => extractor.docs,
