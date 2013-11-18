@@ -30,9 +30,7 @@ class DressCode::SassExtractor
       @comments.push(child) if child.is_a?(Sass::Tree::CommentNode)
     end
 
-    matches = @comments.map { |comment|
-      scan(comment.value[0])[0]
-    }.compact
+    matches = @comments.map { |comment| scan(comment.value[0])[0] }.compact
     return unless matches.length
     matches.map { |match| create_doc(match, path) }
   end

@@ -5,6 +5,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'mustache'
   s.add_dependency 'colored'
   s.add_dependency 'sass'
+  s.add_dependency 'compass'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'pry'
 
