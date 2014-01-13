@@ -1,14 +1,14 @@
 require 'redcarpet'
-require 'pygments'
+require 'rouge'
 require_relative '../dress_code'
 
 class DressCode::Renderer < Redcarpet::Render::HTML
 
   def block_code(code, language)
-    syntax = Pygments.highlight(code, {
-      lexer: language,
-      options: { encoding: 'utf-8' }
-    })
+    formatter = Rouge::Formatters::HTML.new(:css_class => 'highlight')
+    lexer     = Rouge::Lexers::Shell.new
+    syntax    = formatter.format(lexer.lex(code))
+
     inner = if language == 'html'
       "#{syntax} <div class='code-rendered'>#{code}</div>"
     else

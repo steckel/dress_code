@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.add_dependency 'redcarpet'
-  s.add_dependency 'pygments.rb'
+  s.add_dependency 'rouge'
   s.add_dependency 'mustache'
   s.add_dependency 'colored'
   s.add_dependency 'sass'
