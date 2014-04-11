@@ -42,7 +42,7 @@ class DressCode::SassExtractor
   # must return an instance of Doc
   def create_doc(match, path)
     component = match[0]
-    prose = match[1].gsub(%r{\/\/\s}, '').gsub(%r{\n},"\n\n").strip
+    prose = match[1].gsub(%r{\/\/\s}, '').gsub(%r{\n\`\`\`html},"\n\n```html").strip
     DressCode::Document.new({
       :component => component,
       :prose => prose,
